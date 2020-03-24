@@ -1,6 +1,5 @@
 package Models.FirstParents;
 
-
 import Models.AccessInfo;
 import Models.SaleInfo;
 import Models.SearchInfo;

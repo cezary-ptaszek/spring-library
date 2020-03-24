@@ -1,6 +1,5 @@
 package Models;
 
-
 public class Isbn {
 
     private String type;

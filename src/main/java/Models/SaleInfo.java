@@ -1,6 +1,5 @@
 package Models;
 
-
 public class SaleInfo {
 
     private String country;

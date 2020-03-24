@@ -1,6 +1,5 @@
 package Models;
 
-
 public class AccessInfo {
 
     private String country;

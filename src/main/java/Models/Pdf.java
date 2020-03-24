@@ -1,6 +1,5 @@
 package Models;
 
-
 public class Pdf {
 
     private Boolean isAvailable;

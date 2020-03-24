@@ -1,6 +1,5 @@
 package Models;
 
-
 public class ReadingModes {
 
     private Boolean text;

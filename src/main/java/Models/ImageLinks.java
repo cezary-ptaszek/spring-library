@@ -1,6 +1,5 @@
 package Models;
 
-
 public class ImageLinks {
 
     private String smallThumbnail;

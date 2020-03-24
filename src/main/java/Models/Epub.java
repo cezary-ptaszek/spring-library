@@ -1,6 +1,5 @@
 package Models;
 
-
 public class Epub {
 
     private Boolean isAvailable;
