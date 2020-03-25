@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ParsingJsonHelper {
 
-    public static List<Item> parse(String pathName) throws FileNotFoundException {
+    public static List<Item> serialize(String pathName) throws FileNotFoundException {
 
         FileReader reader = new FileReader(pathName);
         Gson gson = new GsonBuilder().serializeNulls().create();
