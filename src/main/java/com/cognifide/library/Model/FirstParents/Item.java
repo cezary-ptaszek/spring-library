@@ -1,10 +1,10 @@
-package Models.FirstParents;
+package com.cognifide.library.Model.FirstParents;
 
 
-import Models.AccessInfo;
-import Models.SaleInfo;
-import Models.SearchInfo;
-import Models.VolumeInfo;
+import com.cognifide.library.Model.AccessInfo;
+import com.cognifide.library.Model.SaleInfo;
+import com.cognifide.library.Model.SearchInfo;
+import com.cognifide.library.Model.VolumeInfo;
 
 public class Item {
 

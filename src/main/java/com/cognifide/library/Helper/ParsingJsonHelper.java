@@ -1,7 +1,7 @@
-package Helpers;
+package com.cognifide.library.Helper;
 
-import Models.FirstParents.Container;
-import Models.FirstParents.Item;
+import com.cognifide.library.Model.FirstParents.Container;
+import com.cognifide.library.Model.FirstParents.Item;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

@@ -1,18 +1,18 @@
-package Models;
+package com.cognifide.library.Model;
 
 
-public class Epub {
+public class Pdf {
 
     private Boolean isAvailable;
     private String acsTokenLink;
 
 
-    public Boolean getIsAvailable() {
+    public Boolean getAvailable() {
         return isAvailable;
     }
 
-    public void setIsAvailable(Boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 
     public String getAcsTokenLink() {

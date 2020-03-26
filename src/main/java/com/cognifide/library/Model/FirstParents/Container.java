@@ -1,4 +1,4 @@
-package Models.FirstParents;
+package com.cognifide.library.Model.FirstParents;
 
 
 import java.util.List;

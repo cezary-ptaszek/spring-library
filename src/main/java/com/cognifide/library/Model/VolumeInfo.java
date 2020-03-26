@@ -1,4 +1,4 @@
-package Models;
+package com.cognifide.library.Model;
 
 import com.google.gson.annotations.SerializedName;
 
