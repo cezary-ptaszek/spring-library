@@ -3,7 +3,6 @@ package com.cognifide.library.controller;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.get;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ItemControllerTest {
 
