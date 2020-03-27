@@ -1,6 +1,6 @@
 package com.cognifide.library.controller;
 
-import com.cognifide.library.model.JsonModel.Item;
+import com.cognifide.library.model.jsonModel.Item;
 import com.cognifide.library.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

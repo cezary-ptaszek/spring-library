@@ -1,7 +1,7 @@
 package com.cognifide.library.helper;
 
-import com.cognifide.library.model.JsonModel.Container;
-import com.cognifide.library.model.JsonModel.Item;
+import com.cognifide.library.model.jsonModel.Container;
+import com.cognifide.library.model.jsonModel.Item;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

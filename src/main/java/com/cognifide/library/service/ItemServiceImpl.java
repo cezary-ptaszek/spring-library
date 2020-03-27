@@ -1,8 +1,8 @@
 package com.cognifide.library.service;
 
 import com.cognifide.library.helper.DeserializeJsonHelper;
-import com.cognifide.library.model.JsonModel.Isbn;
-import com.cognifide.library.model.JsonModel.Item;
+import com.cognifide.library.model.jsonModel.Isbn;
+import com.cognifide.library.model.jsonModel.Item;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;

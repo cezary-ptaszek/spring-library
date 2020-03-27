@@ -1,6 +1,6 @@
 package com.cognifide.library.service;
 
-import com.cognifide.library.model.JsonModel.Item;
+import com.cognifide.library.model.jsonModel.Item;
 
 import java.util.List;
 

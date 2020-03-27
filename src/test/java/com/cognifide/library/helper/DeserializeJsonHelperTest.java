@@ -1,6 +1,6 @@
 package com.cognifide.library.helper;
 
-import com.cognifide.library.model.JsonModel.Item;
+import com.cognifide.library.model.jsonModel.Item;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;

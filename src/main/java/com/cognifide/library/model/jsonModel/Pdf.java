@@ -1,4 +1,4 @@
-package com.cognifide.library.model.JsonModel;
+package com.cognifide.library.model.jsonModel;
 
 
 public class Pdf {

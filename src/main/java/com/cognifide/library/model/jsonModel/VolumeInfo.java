@@ -1,4 +1,4 @@
-package com.cognifide.library.model.JsonModel;
+package com.cognifide.library.model.jsonModel;
 
 import com.google.gson.annotations.SerializedName;
 
