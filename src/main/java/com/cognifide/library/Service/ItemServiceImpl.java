@@ -16,7 +16,7 @@ public class ItemServiceImpl implements IItemService{
 
     private List<Item> items;
 
-    {
+    public ItemServiceImpl() {
         try {
             items = DeserializeJsonHelper.deserializeItem("src\\main\\resources\\books.json");
         } catch (FileNotFoundException e) {
@@ -55,28 +55,33 @@ public class ItemServiceImpl implements IItemService{
         for(Item i : items){
             if(i.getVolumeInfo().getAuthors() != null) {
                 for (String s : i.getVolumeInfo().getAuthors()) {
-                    Author author;
-                    if (getAuthorFromList(authors, s) != null) {
-                        author = getAuthorFromList(authors, s);
-                        if(i.getVolumeInfo().getAverageRating() != null) {
-                            assert author != null;
-                            author.setCurrCounter(author.getCurrCounter() + 1);
-                            author.setRating((author.getRating() + i.getVolumeInfo().getAverageRating())/author.getCurrCounter());
-                            author.setAllCounter(author.getAllCounter() + i.getVolumeInfo().getRatingsCount());
-                        }
-                    } else {
-                        if(i.getVolumeInfo().getAverageRating() != null) {
-                            author = new Author(s,
-                                    i.getVolumeInfo().getAverageRating(),
-                                    i.getVolumeInfo().getRatingsCount(),
-                                    0);
-                            authors.add(author);
-                        }
-                    }
+                    calculateAuthorRating(authors, s, i);
                 }
             }
         }
        authors.sort(Comparator.comparing(Author::getRating).reversed());
+        return authors;
+    }
+
+    private List<Author> calculateAuthorRating(List<Author> authors, String str, Item item){
+        Author author;
+        if (getAuthorFromList(authors, str) != null) {
+            author = getAuthorFromList(authors, str);
+            if(item.getVolumeInfo().getAverageRating() != null) {
+                assert author != null;
+                author.setCurrCounter(author.getCurrCounter() + 1);
+                author.setRating((author.getRating() + item.getVolumeInfo().getAverageRating())/author.getCurrCounter());
+                author.setAllCounter(author.getAllCounter() + item.getVolumeInfo().getRatingsCount());
+            }
+        } else {
+            if(item.getVolumeInfo().getAverageRating() != null) {
+                author = new Author(str,
+                        item.getVolumeInfo().getAverageRating(),
+                        item.getVolumeInfo().getRatingsCount(),
+                        0);
+                authors.add(author);
+            }
+        }
         return authors;
     }
 

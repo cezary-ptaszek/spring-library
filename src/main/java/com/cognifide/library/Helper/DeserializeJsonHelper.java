@@ -11,6 +11,10 @@ import java.util.List;
 
 public class DeserializeJsonHelper {
 
+    private DeserializeJsonHelper() {
+
+    }
+
     public static List<Item> deserializeItem(String pathName) throws FileNotFoundException {
 
         FileReader reader = new FileReader(pathName);
