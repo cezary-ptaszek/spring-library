@@ -1,4 +1,4 @@
-package com.cognifide.library.Model.FirstParents;
+package com.cognifide.library.Model.JsonModel;
 
 
 import java.util.List;

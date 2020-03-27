@@ -1,4 +1,4 @@
-package com.cognifide.library.Model;
+package com.cognifide.library.Model.JsonModel;
 
 
 public class Epub {

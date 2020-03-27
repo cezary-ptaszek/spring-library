@@ -1,4 +1,4 @@
-package com.cognifide.library.Model;
+package com.cognifide.library.Model.JsonModel;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -14,6 +14,7 @@ public class VolumeInfo {
 
     @SerializedName("industryIdentifiers")
     private List<Isbn> isbns;
+
     private ReadingModes readingModes;
     private Integer pageCount;
     private String printType;
