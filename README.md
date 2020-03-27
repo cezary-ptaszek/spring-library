@@ -8,6 +8,8 @@ A project presenting part of the library's capabilities, such as:
 ## Technologies:
 * Java (language lvl - 8)
 * Spring Boot 2.2.4
+* JUnit 5.5.2
+* REST-assured 4.3.0
 * Maven 3.6.3
 * Git 2.24
 
@@ -23,6 +25,7 @@ Helper - some consider this as OOP anti-pattern, but I think it's good practice 
 ##### Author:
 
 * GET rating: /author/rating
+* GET rating by name: /author/rating?name=name
 
 ## Compilation Command:
 To download the project:
