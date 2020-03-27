@@ -14,9 +14,14 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements IItemService{
 
-    private List<Item> items = DeserializeJsonHelper.deserializeItem("src\\main\\resources\\books.json");
+    private List<Item> items;
 
-    public ItemServiceImpl() throws FileNotFoundException {
+    {
+        try {
+            items = DeserializeJsonHelper.deserializeItem("src\\main\\resources\\books.json");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -51,10 +56,10 @@ public class ItemServiceImpl implements IItemService{
             if(i.getVolumeInfo().getAuthors() != null) {
                 for (String s : i.getVolumeInfo().getAuthors()) {
                     Author author;
-                    if (authors.contains(s)) {
+                    if (getAuthorFromList(authors, s) != null) {
                         author = getAuthorFromList(authors, s);
-                        assert author != null;
                         if(i.getVolumeInfo().getAverageRating() != null) {
+                            assert author != null;
                             author.setCurrCounter(author.getCurrCounter() + 1);
                             author.setRating((author.getRating() + i.getVolumeInfo().getAverageRating())/author.getCurrCounter());
                             author.setAllCounter(author.getAllCounter() + i.getVolumeInfo().getRatingsCount());
