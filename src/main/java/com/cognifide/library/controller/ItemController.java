@@ -1,11 +1,14 @@
-package com.cognifide.library.Controller;
+package com.cognifide.library.controller;
 
-import com.cognifide.library.Model.JsonModel.Item;
-import com.cognifide.library.Service.IItemService;
+import com.cognifide.library.model.JsonModel.Item;
+import com.cognifide.library.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +26,7 @@ class ItemController {
     }
 
     @GetMapping(params = "isbn")
-    @ResponseBody
-    public ResponseEntity<Item> getItemByIsbn(@RequestParam(required=false) String isbn) {
+    public ResponseEntity<Item> getItemByIsbn(@RequestParam(value = "isbn") String isbn) {
         Optional<Item> item = Optional.ofNullable(itemService.getItemByIsbn(isbn));
         return item.map(value
                 -> ResponseEntity.status(HttpStatus.OK).body(value)).orElseGet(()
@@ -32,7 +34,7 @@ class ItemController {
     }
 
     @GetMapping(params = "category")
-    public ResponseEntity<List<Item>> getItemsByCategory(@RequestParam(value="category") String category) {
+    public ResponseEntity<List<Item>> getItemsByCategory(@RequestParam(value = "category") String category) {
         Optional<List<Item>> items = Optional.ofNullable(itemService.getItemsByCategory(category));
         return items.map(value
                 -> ResponseEntity.status(HttpStatus.OK).body(value)).orElseGet(()

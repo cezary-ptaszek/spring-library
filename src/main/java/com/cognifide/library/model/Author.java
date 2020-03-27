@@ -1,4 +1,4 @@
-package com.cognifide.library.Model;
+package com.cognifide.library.model;
 
 public class Author {
     private String name;

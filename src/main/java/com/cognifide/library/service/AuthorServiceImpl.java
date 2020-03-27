@@ -1,9 +1,8 @@
-package com.cognifide.library.Service;
+package com.cognifide.library.service;
 
-import com.cognifide.library.Helper.DeserializeJsonHelper;
-import com.cognifide.library.Model.Author;
-import com.cognifide.library.Model.JsonModel.Isbn;
-import com.cognifide.library.Model.JsonModel.Item;
+import com.cognifide.library.helper.DeserializeJsonHelper;
+import com.cognifide.library.model.Author;
+import com.cognifide.library.model.JsonModel.Item;
 import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
@@ -12,41 +11,16 @@ import java.util.Comparator;
 import java.util.List;
 
 @Service
-public class ItemServiceImpl implements IItemService{
+public class AuthorServiceImpl implements IAuthorService{
 
     private List<Item> items;
 
-    public ItemServiceImpl() {
+    public AuthorServiceImpl() {
         try {
             items = DeserializeJsonHelper.deserializeItem("src\\main\\resources\\books.json");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public Item getItemByIsbn(String givenIsbn) {
-        for(Item i : items) {
-            for (Isbn isbn : i.getVolumeInfo().getIsbns()) {
-                if (isbn.getIdentifier().equals(givenIsbn))
-                    return i;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Item> getItemsByCategory(String category) {
-        List<Item> itemsByCategory = new ArrayList<>();
-        for(Item i : items){
-            if(i.getVolumeInfo().getCategories()!=null) {
-                for (String s : i.getVolumeInfo().getCategories()) {
-                    if (s.equals(category))
-                        itemsByCategory.add(i);
-                }
-            }
-        }
-        return itemsByCategory;
     }
 
     @Override
@@ -59,15 +33,25 @@ public class ItemServiceImpl implements IItemService{
                 }
             }
         }
-       authors.sort(Comparator.comparing(Author::getRating).reversed());
+        authors.sort(Comparator.comparing(Author::getRating).reversed());
         return authors;
     }
 
-    private List<Author> calculateAuthorRating(List<Author> authors, String str, Item item){
+    @Override
+    public Author getAuthorRatingByName(String name) {
+        List<Author> authors = getAuthorsRating();
+        for(Author a : authors){
+            if(a.getName().equals(name))
+                return a;
+        }
+        return null;
+    }
+
+    private void calculateAuthorRating(List<Author> authors, String str, Item item){
         Author author;
         if (getAuthorFromList(authors, str) != null) {
-            author = getAuthorFromList(authors, str);
             if(item.getVolumeInfo().getAverageRating() != null) {
+                author = getAuthorFromList(authors, str);
                 assert author != null;
                 author.setCurrCounter(author.getCurrCounter() + 1);
                 author.setRating((author.getRating() + item.getVolumeInfo().getAverageRating())/author.getCurrCounter());
@@ -82,7 +66,6 @@ public class ItemServiceImpl implements IItemService{
                 authors.add(author);
             }
         }
-        return authors;
     }
 
     private Author getAuthorFromList(List<Author> authors, String author){

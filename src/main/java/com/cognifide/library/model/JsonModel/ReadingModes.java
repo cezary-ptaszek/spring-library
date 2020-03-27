@@ -1,4 +1,4 @@
-package com.cognifide.library.Model.JsonModel;
+package com.cognifide.library.model.JsonModel;
 
 
 public class ReadingModes {
