@@ -13,9 +13,6 @@ A project presenting part of the library's capabilities, such as:
 * Maven 3.6.3
 * Git 2.24
 
-## Design Pattern
-Helper - some consider this as OOP anti-pattern, but I think it's good practice to separate static code from logic.
-
 ## Endpoints:
 ##### Item (Book):
 
