@@ -1,6 +1,6 @@
 # Book Library Application
 ### Description
-A project presenting part of the library's capabilities, such as:
+A project presenting part of the library's capabilities using .json form google-books-api, such as:
 - displaying information about the book by her ISBN,
 - displaying books by category
 - display author ratings from the highest rate
